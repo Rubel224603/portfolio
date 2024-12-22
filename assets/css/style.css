@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", serif;
+ 
+}
+.hero {
+  background-color: rgb(0 127 115) !important;
+}
+
+
+.logo{
+    width: 50px;
+    /* height: 40px; */
+    position: relative;
+    top: -5px;
+}
+.navigation{
+  background:#007F73;
+}
+
+
+.multipletext {
+
+    color:red;
+
+}
+.about{
+  background:#D5FDF9;
+}
+.cardcolumn .icon{
+  background: #007F73;
+}
+.cardbg{
+  background:#D5FDF9;
+} 
+ .card:hover {
+  transition: all 0.3s ease-in-out;
+  border: 2px solid #0d6efd;
+  transform: scale(1.05); 
+  box-shadow: 0 4px 20px rgba(184, 105, 105, 0.2); 
+}
+
+.card-body {
+  opacity: 0.9;
+  transition: opacity 0.3s ease-in-out;
+}
+.service{
+  background: #1b1d1d;
+}
+
+.card:hover .card-body {
+  opacity: 1;
+}
+.skills{
+  background:#093430ad;
+}
+
+.testimonials{
+  background:#0f2422;
+}
+.contact{
+  background: darkslategray;
+}
