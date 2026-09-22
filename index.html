@@ -1,598 +1,1061 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,
+        maximum-scale=1.0, minimum-scale=1.0">
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Rubel Hosen Portfolio</title>
+
+    <title>Rubel Hosen | Junior Laravel Developer</title>
+
     <link rel="stylesheet" href="assets/fonts/css/all.min.css">
-    <link rel="stylesheet" href="assets/fonts/css/fontawesome.css">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #0f172a;
+        }
+
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            color: var(--dark);
+        }
+
+        /* Navbar */
+
+        .navbar {
+            background: var(--dark);
+        }
+
+        .navbar-brand {
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+        .navbar-brand span {
+            color: var(--primary);
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            margin-left: 15px;
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        /* Hero */
+
+        .hero {
+            background: var(--dark);
+            color: #ffffff;
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid var(--primary);
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            font-weight: 800;
+        }
+
+        .hero h2 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+
+        .social-icon {
+            color: #ffffff;
+            font-size: 25px;
+            margin-right: 15px;
+        }
+
+        .social-icon:hover {
+            color: var(--primary);
+        }
+
+        /* Section */
+        section {
+            scroll-margin-top: 8px;
+        }
+
+        .section-title {
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+        }
+
+        /* About */
+
+        .about {
+            padding: 90px 0;
+        }
+
+        .about-img {
+            width: 420px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 5px solid var(--primary);
+        }
+
+        .about p {
+            line-height: 1.8;
+            color: #4b5563;
+        }
+
+        .skill-list li {
+            margin-bottom: 10px;
+        }
+
+        .skill-list li::marker {
+            color: var(--primary);
+        }
+
+        /* Skills */
+
+        .skills {
+            background: #f8fafc;
+            padding: 80px 0;
+        }
+
+        .skill-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 15px;
+            padding: 30px 20px;
+            background: #ffffff;
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .skill-card i {
+            font-size: 45px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        /* Services */
+
+        .services {
+            padding: 90px 0;
+        }
+
+        .service-card {
+            background: var(--dark);
+            color: #ffffff;
+            border-radius: 15px;
+            padding: 35px 25px;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+        }
+
+        .service-card i {
+            color: var(--primary);
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        .service-card p {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+
+        /* Projects */
+
+        .projects {
+            background: #f8fafc;
+            padding: 90px 0;
+        }
+
+        .project-card {
+            border: 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(15, 23, 42, 0.08);
+            height: 100%;
+        }
+
+        .project-card img {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .project-card .card-title {
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .project-card p {
+            color: #4b5563;
+            line-height: 1.7;
+        }
+
+        .experience {
+            padding: 90px 0;
+        }
+
+        /* Contact */
+
+        .contact {
+            padding: 90px 0;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(37, 99, 235, 0.15);
+        }
+
+        /* Footer */
+
+        footer {
+            background: var(--dark);
+            color: #ffffff;
+            padding: 50px 0 20px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        footer span {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+
+            .hero {
+                text-align: center;
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero-img {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 40px;
+            }
+
+            .about {
+                text-align: center;
+            }
+
+            .about-img {
+                margin-top: 30px;
+            }
+
+            .nav-link {
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <header class="sticky-top">
-        <nav class="navbar navbar-expand-lg  navigation navbar-dark">
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="sticky-top">
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
             <div class="container">
-                <a href="index.html" class="navbar-brand">
-                    Rubel <img class="logo" src="assets/img/bg.png" alt=""> Hosen
+
+                <a href="#" class="navbar-brand">
+                    Rubel <span>Hosen</span>
                 </a>
-    
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent">
+
                     <span class="navbar-toggler-icon"></span>
+
                 </button>
-    
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                        <li class="nav-item"><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                        <li class="nav-item"><a href="#gallary" class="nav-link">Gallery</a></li>
-                        <li class="nav-item"><a href="#testimonial" class="nav-link">Testimonilas</a></li>
-                        <li class="nav-item"><a href="#services" class="nav-link">Service</a></li>
+
+                        <li class="nav-item">
+                            <a href="#home" class="nav-link">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#about" class="nav-link">About</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#skills" class="nav-link">Skills</a>
+                        </li>
+
+                        
+                        <li class="nav-item">
+                            <a href="#experience" class="nav-link">Experience</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#portfolio" class="nav-link">Projects</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#contact" class="nav-link">Contact</a>
+                        </li>
+
                     </ul>
+
                 </div>
+
             </div>
+
         </nav>
-    
-  
+
     </header>
 
 
-    <!--hero Section start-->
+    <!-- ================= HERO ================= -->
 
-    <section class="hero">
+    <section class="hero" id="home">
+
         <div class="container">
-           <div class="row  ">
-            <div class="col-md-5 pt-5">
-                <img src="assets/img/rubel.png" alt="hero image" class="w-100  ">
-                
-              
-            </div>
-            <div class="col-md-1"></div>
-            <div class="col-md-6 mt-5">
 
-                <h2 class="fw-bold mt-4">Hello, Myself</h2>
+            <div class="row align-items-center">
 
-                <h1 class="display-1 fw-bolder text-warning">Rubel Hosen</h1>
-               
-            
+                <div class="col-lg-5 text-center">
 
-                <h2 class="fw-bold">And I am a <span class="text-white">Web Developer</span>   </h2>
+                    <!-- <img src="assets/img/rubel.png" class="hero-img" alt="Rubel Hosen"> -->
+                    <img src="assets/img/ii.jpeg" class="hero-img" alt="Rubel Hosen">
 
-                <p>I'm a Professional  Web Developer , I love to create beautiful and functional websites. I have more than ++ year experience in this fild. I accept the new challange & slove it Daynamically. </p>
-
-               
-               
-                <div class="d-flex ">
-                        
-                    <div class="p-1 "><a href="https://www.facebook.com/Rubel224603" class="text-white" target="_blank"><i class="fa-brands fa-facebook fa-2x "></i></a></div>
-                    <div class="p-1"> <a href="https://github.com/Rubel224603" class="text-white" target="_blank"><i class="fab fa-github fa-2x"></i></a></div>
-                    <div class="p-1 "> <a href=""  class="text-white"><i class="fab fa-twitter fa-2x" target="_blank"></i></a> </div>
-                    <div class="p-1"> <a href="https://www.linkedin.com/in/r-h-rubel-hossain-a3958216a/"  target="_blank" class="text-white" ><i class="fab fa-linkedin fa-2x" target="_blank"></i></a></div>
-                   
                 </div>
-               
 
-            
-                 
-                  <div class="mt-3 ">
-                    <a href="#" class="btn  btn btn-primary text-white fw-bolder">Hire Me</a>
-               
-                  </div>
-                  <div class="mt-3 ">
-                    <a href="assets/Rubel Hosen Cv.pdf" class="btn btn-dark text-white cv me-auto">Download CV <i class="fa-solid fa-download"></i></a>
-               
-                  </div>
-                
-               
+                <div class="col-lg-7">
+
+                    <h2 class="fw-bold">Hello, I'm</h2>
+
+                    <h1>Rubel Hosen</h1>
+
+                    <h2 class="fw-bold">
+                        I'm a
+                        <span>Junior Laravel Developer</span>
+                    </h2>
+
+                    <p class="mt-4">
+                        I'm a passionate Web Developer specializing in PHP
+                        and Laravel. I enjoy building clean, functional and
+                        user-friendly web applications.
+                    </p>
+
+                    <p>
+                        I have hands-on experience with Laravel, MySQL,
+                        RESTful APIs, CRUD operations and database-driven
+                        web applications.
+                    </p>
+
+                    <!-- Social -->
+
+                    <div class="mt-4">
+
+                        <a href="https://www.facebook.com/Rubel224603" target="_blank" class="social-icon">
+
+                            <i class="fa-brands fa-facebook"></i>
+
+                        </a>
+
+                        <a href="https://github.com/Rubel224603" target="_blank" class="social-icon">
+
+                            <i class="fa-brands fa-github"></i>
+
+                        </a>
+
+                        <a href="https://www.linkedin.com/in/r-h-rubel-hossain-a3958216a/" target="_blank"
+                            class="social-icon">
+
+                            <i class="fa-brands fa-linkedin"></i>
+
+                        </a>
+
+                    </div>
+
+                    <div class="mt-4">
+
+                        <a href="#contact" class="btn btn-primary px-4 py-2 me-2">
+
+                            Hire Me
+
+                        </a>
+
+                        <a href="assets/cv Rubel Hosen.pdf" class="btn btn-light px-4 py-2">
+
+                            Download CV
+                            <i class="fa-solid fa-download"></i>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
             </div>
-           </div>
+
         </div>
+
     </section>
 
-    <!--about me section-->
 
+    <!-- ================= ABOUT ================= -->
 
     <section class="about" id="about">
 
-        <div class="container py-5">
-            <div class="row d-flex">
-                <div class="col-md-6 mt-5">
-                    <h1 class="display-3 fw-bold text-primary">About <span class="text-warning">Me</span></h1>
-                    <h2>I'm a Frontend Developer</h2>
-                    <p>Here is me . I am skilled  Web tools &  Technologoy.I  have experties Frontend & Backend Technologoy like 
+        <div class="container">
 
+            <div class="row align-items-center">
+
+                <div class="col-lg-6">
+
+                    <h1 class="section-title">
+                        About <span>Me</span>
+                    </h1>
+
+                    <h2 class="mb-4">
+                        Junior Laravel Developer
+                    </h2>
+
+                    <p>
+                        I am a Junior Web Developer specializing in PHP
+                        and Laravel. I enjoy developing web applications
+                        and solving backend-related problems.
                     </p>
-                    <ul class="fw-bold">
-                        <li> HTMl</li>
-                        <li> CSS</li>
-                        <li> JavaScript</li>
-                        <li> Bootstrap</li>
-                        <li> Figma</li>
-                        <li> PHP</li>
-                        <li> Laravel</li>
+
+                    <p>
+                        I have experience working with MVC architecture,
+                        Eloquent ORM, MySQL, REST APIs, CRUD operations
+                        and authentication systems.
+                    </p>
+
+                    <ul class="skill-list fw-bold">
+
+                        <li>PHP</li>
+                        <li>Laravel</li>
+                        <li>MySQL</li>
+                        <li>REST API</li>
+                        <li>JavaScript</li>
+                        <li>Bootstrap</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Git & GitHub</li>
+
                     </ul>
-                  
+
                 </div>
-                <div class="col-md-6 mt-5">
-                    <img src="assets/img/bg.png" class="w-100 rounded-circle" alt="myImage">
+
+                <div class="col-lg-6 text-center">
+
+                   <!-- <img src="assets/img/bg.png" class="about-img" alt="Rubel Hosen"> -->
+                    <img src="assets/img/g.jfif" class="about-img" alt="Rubel Hosen">
+
                 </div>
+
             </div>
+
         </div>
+
     </section>
 
 
-    <!--services-->
-    <section class="service text-white py-5" id="services">
-        <div class="container ">
-            <div class="row mb-5">
-                <h1 class="text-center display-3 fw-bold pt-1 pb-5">My <span class="text-primary">Services</span></h1>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body cardbg rounded  py-5">
-                            <i class="fa-solid fa-angle-left fa-3x text-primary icon py-3"></i>
-                            <i class="fa-solid fa-angle-right fa-3x text-primary icon py-3"></i>
-                            <h3 class="card-title">Web Development</h3>
-                            
-                            <p class="text-start"> Lorem, ipsum dolor sitamet consectetur adipisaudantium at repudiandae corporis magni libero do Start aligned loremque earum porro autem, nemo quod recusandae officiis molestias.</p>
-                            <a href="#" class="btn btn-success rounded-pill ">read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body cardbg rounded  py-5">
-                 
-                           
-                            <i class="fa-brands fa-uikit fa-3x text-primary icon p-3"></i>
-                            <h3 class="card-title">UX/UI Design</h3>
-                            
-                            
-                            <p class="text-start"> Lorem, ipsum dolor sitamet consectetur adipisaudantium at repudiandae corporis magni libero do Start aligned loremque earum porro autem, nemo quod recusandae officiis molestias.</p>
-                            <a href="#" class="btn btn-success rounded-pill">read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body cardbg rounded  py-5">
-                            
-                            <i class="fa-brands fa-apple fa-3x text-primary icon p-3"></i>
-                            <h3 class="card-title">App Development
-                            </h3>
-                            
-                            <p class="text-start "> Lorem, ipsum dolor sitamet consectetur adipisaudantium at repudiandae and corporis magni libero do Start aligned loremque earum porro autem, nemo quod recusandae officiis molestias.</p>
-                            <a href="#" class="btn btn-success rounded-pill ">read more</a>
-                        </div>
-                    </div>
-              
-                </div>
-            </div>
-        </div>
+    <!-- ================= SKILLS ================= -->
+
+    <section class="skills" id="skills">
+
         <div class="container">
-            <div class="row mb-5">
-                <h1 class="text-center display-3 fw-bold p-5">Technical <span class="text-primary"> Support</span></h1>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body cardbg rounded  py-5">
-                       
-                            <i class="fa-regular fa-face-smile  fa-3x text-dark icon py-3"></i>
-                            <h3 class="card-title"><span class="text-danger">Clinet </span>Statisfaction</h3>
-                            
-                            <p class="text-start"> Clinet Statis faction is our Priroyt corporis magni libero do Start aligned loremque earum porro autem, nemo quod recusandae officiis molestias.</p>
-                            <a href="#" class="btn btn-success rounded-pill ">read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body cardbg rounded  py-5">
-                 
-                           
-                           
-                            <i class="fa-regular fa-handshake fa-3x text-primary icon p-3"></i>
-                            <h3 class="card-title">24/7 Support</h3>
-                            
-                            
-                            <p class="text-start"> Lorem, ipsum dolor sitamet consectetur adipisaudantium at repudiandae corporis magni libero do Start aligned loremque earum porro autem</p>
-                            <a href="#" class="btn btn-success rounded-pill">read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card text-center border-0">
-                        <div class="card-body cardbg rounded  py-5">
-                            
-                            
-                            <img src="assets/img/rev.png" alt="Revision" class="w-25 p-3">
-                            <h3 class="card-title">Unlimited** Revision
-                            </h3>
-                            
-                            <p class=""> Lorem, ipsum dolor sitamet consectetur adipisaudantium at repudiandae and corporis magni libero do Start aligned loremque earum porro autem, .</p>
-                            <a href="#" class="btn btn-success rounded-pill ">read more</a>
-                        </div>
-                    </div>
-              
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!--skill section-->
+            <h1 class="section-title text-center mb-5">
+                My <span>Skills</span>
+            </h1>
 
-    <section class="skills">
-            <div class="container">
-                <div class="row py-5">
-                    <h1 class="text-center text-uppercase mb-5 fw-bold">My <span class="text-warning">skills</span></h1>
-                   
-                            <div class="col-md-3">
-                            
-                              <img src="assets/img/w.webp" class="w-100 h-100" alt="">
-                             
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/c3.png"  class="w-100 h-100" alt="">
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/w1.webp" class="w-100 h-100" alt="">
-                            </div>
-                            <div class="col-md-3">
-                                <img src="assets/img/laravel.webp" class="w-100 h-100" alt="">
-                            </div>
-                    
-
-                   
-                   
-                </div>
-            </div>
-    </section>
-
-    <!--testimonials-->
-    <section class="testimonials" id="testimonial">
-        <div class="container">
-            <div class="row pb-3">
-                <h1 class="text-center fw-bold display-3 py-5 text-warning"> Testimonilas</h1>
-                <div class="col-md-4">
-                    <div class="card border-0 rounded ">
-                        <div class="card-body text-center pt-5 bg-dark">
-                            <img src="assets/img/t2.avif" alt="" class="w-100 rounded-circle " >
-                            <h3 class="card-title pt-4 pb-2 text-white">Mariyana Ching Ku</h3>
-                          
-                            <div class="text-warning py-1">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut corrupti sunt magnam porro velit distinctio! Ratione quam consectetur possimus beatae!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 rounded ">
-                        <div class="card-body text-center pt-5 bg-dark">
-                            <img src="assets/img/t3.jpg" alt="" class="w-100 rounded-circle " >
-                            <h3 class="card-title pt-4 pb-2 text-white">Mr Dim</h3>
-                          
-                            <div class="text-warning py-1">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut corrupti sunt magnam porro velit distinctio! Ratione quam consectetur possimus beatae!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-0 rounded">
-                        <div class="card-body text-center pt-5 bg-dark">
-                            <img src="assets/img/crt.PNG" alt="" class="w-100 rounded-circle" />
-                            <h3 class="card-title pt-4 pb-2 text-white">Anjel Karina</h3>
-                          
-                            <div class="text-warning py-1">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-
-                            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut corrupti sunt magnam porro velit distinctio! </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section>
-     <!--portfolio-->
-
-     <section id="portfolio" class="py-5">
-        <div class="container">
-          <h2 class="text-center mb-4">My Portfolio</h2>
-          <p class="text-center text-muted mb-5">A showcase of my recent work and accomplishments.</p>
-          <div class="row g-4">
-            <!-- Project 1 -->
-            <div class="col-md-6 col-lg-4">
-              <div class="card h-100">
-                <img src="assets/img/blog.avif" class="card-img-top" alt="Project 1">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title 1</h5>
-                  <p class="card-text">A brief description of the project highlighting its features and purpose.</p>
-                </div>
-                <div class="card-footer text-center">
-                  <a href="#" class="btn btn-primary btn-sm">View Project</a>
-                  <a href="#" class="btn btn-outline-secondary btn-sm">Details</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project 2 -->
-            <div class="col-md-6 col-lg-4">
-              <div class="card h-100">
-                <img src="assets/img/ecommerce.webp" class="card-img-top" alt="Project 2">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title 2</h5>
-                  <p class="card-text">A brief description of the project highlighting its features and purpose.</p>
-                </div>
-                <div class="card-footer text-center">
-                  <a href="#" class="btn btn-primary btn-sm">View Project</a>
-                  <a href="#" class="btn btn-outline-secondary btn-sm">Details</a>
-                </div>
-              </div>
-            </div>
-            <!-- Project 3 -->
-            <div class="col-md-6 col-lg-4">
-              <div class="card h-100">
-                <img src="assets/img/full.jpg" class="card-img-top" alt="Project 3">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title 3</h5>
-                  <p class="card-text">A brief description of the project highlighting its features and purpose.</p>
-                </div>
-                <div class="card-footer text-center">
-                  <a href="#" class="btn btn-primary btn-sm">View Project</a>
-                  <a href="#" class="btn btn-outline-secondary btn-sm">Details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!--contact-->
-    <section class="contact" id="contact">
-        <div class="container py-5">
-            <div class="row">
-                <h1 class="text-center text-warning pt-2  fw-bold display-3">Contact Me</h1>
-                <hr>
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
-                   
-                    <form>
-                        <div class="row">
-                          <div class="col">
-                            <input type="text" class="form-control" placeholder="Full name">
-                          </div>
-                          <div class="col">
-                            <input type="text" class="form-control" placeholder="Email Adress">
-                          </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                          <div class="col">
-                            <input type="text" class="form-control" placeholder="Phone Number">
-                          </div>
-                          <div class="col">
-                            <input type="text" class="form-control" placeholder="Subject">
-                          </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col">
-                                <textarea name="" id=""  rows="10" class="form-control" placeholder="Enter your message"></textarea>
-                            </div>
-                        </div><br>
-
-                         <button type="submit" class="btn btn-success"> Send Message</button>
-                      </form>
-                </div>
-                <div class="col-md-2"></div>
-            </div>
-        </div>
-    </section>
-    <section class="gallary bg-dark-subtle" id="gallary">
-        <div class="container py-5">
-            <h1 class="text-center mb-4 fw-bold display-3"> Gallery</h1>
             <div class="row g-4">
-             
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/me.jpg"  class="card-img-top  w-100 h-100" alt="Gallery Image 1">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 1</p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-brands fa-php"></i>
+
+                        <h5>PHP</h5>
+
                     </div>
+
                 </div>
-              
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/error (4).jpeg" class="card-img-top  w-100 h-100" alt="Gallery Image 2">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 2</p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-brands fa-laravel"></i>
+
+                        <h5>Laravel</h5>
+
                     </div>
+
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/3333.jpeg" class="card-img-top w-100 h-100" alt="Gallery Image 3">
-                        <div class="card-body">
-                            <p class="card-text text-center">Brirth day </p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-solid fa-database"></i>
+
+                        <h5>MySQL</h5>
+
                     </div>
+
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/l.jpg" class="card-img-top w-100 h-100" alt="Gallery Image 4">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 4</p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-brands fa-js"></i>
+
+                        <h5>JavaScript</h5>
+
                     </div>
+
                 </div>
-            </div> <br>
-            <div class="row g-4">
-             
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/me.jpg"  class="card-img-top  w-100 h-100" alt="Gallery Image 1">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 1</p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-brands fa-bootstrap"></i>
+
+                        <h5>Bootstrap</h5>
+
                     </div>
+
                 </div>
-              
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/error (4).jpeg" class="card-img-top  w-100 h-100" alt="Gallery Image 2">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 2</p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-brands fa-html5"></i>
+
+                        <h5>HTML</h5>
+
                     </div>
+
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/3333.jpeg" class="card-img-top w-100 h-100" alt="Gallery Image 3">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 3</p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-brands fa-css3-alt"></i>
+
+                        <h5>CSS</h5>
+
                     </div>
+
                 </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/l.jpg" class="card-img-top w-100 h-100" alt="Gallery Image 4">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 4</p>
-                        </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+
+                    <div class="skill-card text-center">
+
+                        <i class="fa-brands fa-github"></i>
+
+                        <h5>Git & GitHub</h5>
+
                     </div>
+
                 </div>
-            </div> <br>
-            <div class="row g-4">
-             
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/error (1).jpeg"  class="card-img-top  w-100 h-100" alt="Gallery Image 1">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 1</p>
-                        </div>
-                    </div>
-                </div>
-              
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/error (4).jpeg" class="card-img-top  w-100 h-100" alt="Gallery Image 2">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 2</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/3333.jpeg" class="card-img-top w-100 h-100" alt="Gallery Image 3">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 3</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="card">
-                        <img src="assets/img/l.jpg" class="card-img-top w-100 h-100" alt="Gallery Image 4">
-                        <div class="card-body">
-                            <p class="card-text text-center">Image 4</p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
+
         </div>
+
     </section>
-   
-
-
-
 
 
 
     
-    <footer class="hero">
+    <!-- ================= EXPERIENCE ================= -->
+
+    <section class="experience py-5" id="experience">
+
         <div class="container">
-            <div class="row text-white">
-                <div class="col-md-4">
-                    <div class="pt-5 mt-4">
-                        <a href="index.html" class="display-5 fw-bold text-white text-decoration-none footerText">Rubel Hosen</a>
-                        <p class="text-dark">accept new challange</p>
-                    </div>
-                </div>
-                <div class="col-md-4 text-center pt-5">
-                   
-                   
-                    <div class="p-5">
-                        <p> Phone :  0195038383541</p>
-                        <a href="https://web.facebook.com/Rubel224603/"  class="text-white text-decoration-none">Facebook</a>
-                        <a href="https://web.facebook.com/Rubel224603/"  class="text-white text-warning text-decoration-none">Github</a>
-                        <a href="https://web.facebook.com/Rubel224603/" class="text-white text-warning text-decoration-none">linkedin</a>
-                    </div>
-                   
-                </div>
-                <div class="col-md-4 text-center pt-5">
-                    <div class="p-5">
-                        <p>Email : cserubelhosen@gmail.com</p>
-                    
-                        <a href="https://web.facebook.com/Rubel224603/" class="text-white text-decoration-none">Facebook</a>
-                        <br>
-                       
+
+            <h1 class="section-title text-center mb-5">
+                My <span>Experience</span>
+            </h1>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-9">
+
+                    <!-- Junior Laravel Developer -->
+
+                    <div class="card border-0 shadow-sm mb-4">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex justify-content-between flex-wrap">
+
+                                <div>
+                                    <h3 class="fw-bold mb-1">
+                                        Junior Laravel Developer
+                                    </h3>
+
+                                    <h5>
+                                        <a href="https://webcoder-it.com/" target="_blank"
+                                            class="text-primary text-decoration-none">
+                                            Web Coder IT
+                                        </a>
+                                    </h5>
+                                </div>
+
+                                <div>
+                                    <span class="badge bg-dark fs-6">
+                                        September 2025 – May 2026
+                                    </span>
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+                            <ul class="mb-0">
+
+                                <li class="mb-2">
+                                    Developed and maintained web applications
+                                    using PHP and Laravel.
+                                </li>
+
+                                <li class="mb-2">
+                                    Worked with MVC architecture, Eloquent ORM,
+                                    MySQL, and RESTful APIs.
+                                </li>
+
+                                <li class="mb-2">
+                                    Implemented new features and fixed
+                                    application bugs.
+                                </li>
+
+                                <li class="mb-2">
+                                    Worked with database structures and
+                                    relationships.
+                                </li>
+
+                                <li class="mb-2">
+                                    Collaborated with senior developers and
+                                    development team members.
+                                </li>
+
+                                <li>
+                                    Used Git for version control, branches,
+                                    and pull requests.
+                                </li>
+
+                            </ul>
+
+                        </div>
 
                     </div>
+
+
+                    <!-- Intern -->
+
+                    <div class="card border-0 shadow-sm">
+
+                        <div class="card-body p-4">
+
+                            <div class="d-flex justify-content-between flex-wrap">
+
+                                <div>
+
+                                    <h3 class="fw-bold mb-1">
+                                        PHP/Laravel Intern
+                                    </h3>
+
+                                    <h5 class="text-primary">
+                                        Web Coder IT
+                                    </h5>
+
+                                </div>
+
+                                <div>
+
+                                    <span class="badge bg-dark fs-6">
+                                        May 2025 – August 2025
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <hr>
+
+                            <ul class="mb-0">
+
+                                <li class="mb-2">
+                                    Gained hands-on experience in PHP
+                                    and Laravel development.
+                                </li>
+
+                                <li class="mb-2">
+                                    Worked with MVC architecture,
+                                    database operations, and Eloquent ORM.
+                                </li>
+
+                                <li>
+                                    Assisted in developing and maintaining
+                                    web application features.
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
                 </div>
-               
-               
+
             </div>
-            <div class="row">
-                <hr>
-                <div class="col text-center">
-                    <p>All righ Reseverd &copy cserubelhosen 2024</p>
-                </div>
-            </div>
+
         </div>
+
+    </section>
+
+
+    <!-- ================= PROJECTS ================= -->
+
+    <section id="portfolio" class="projects">
+
+        <div class="container">
+
+            <h1 class="section-title text-center">
+                My <span>Projects</span>
+            </h1>
+
+            <p class="text-center text-muted mb-5">
+                Some of my recent development projects.
+            </p>
+
+            <div class="row g-4">
+
+                <!-- Project 1 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card project-card">
+
+                        <img src="assets/img/inceptionbd.png" class="card-img-top" alt="Learning Management System">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Learning Management System
+                            </h5>
+
+                            <p>
+                                A Laravel-based Learning Management System
+                                for managing courses, students, instructors,
+                                lessons and educational content.
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white border-0 pb-4 text-center">
+
+                            <a href="https://www.inceptionbd.com/" target="_blank" class="btn btn-primary">
+
+                                View Project
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project 2 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card project-card">
+
+                        <img src="assets/img/kowserboostagency.png" class="card-img-top"
+                            alt="Personal Branding Website">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                Personal Branding Website
+                            </h5>
+
+                            <p>
+                                A responsive personal branding website
+                                designed to showcase professional skills,
+                                projects and experience.
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white border-0 pb-4 text-center">
+
+                            <a href="https://kowsarboostagency.com/" target="_blank" class="btn btn-primary">
+
+                                View Project
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Project 3 -->
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="card project-card">
+
+                        <img src="assets/img/etrade.png" class="card-img-top" alt="E-commerce Project">
+
+                        <div class="card-body">
+
+                            <h5 class="card-title">
+                                E-commerce Website
+                            </h5>
+
+                            <p>
+                                Developed an e-commerce application using
+                                Laravel and MySQL with product, category,
+                                cart, order, customer and admin management.
+                            </p>
+
+                        </div>
+
+                        <div class="card-footer bg-white border-0 pb-4 text-center">
+
+                            <a href="#" class="btn btn-primary">
+
+                                View Source Code
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact" id="contact">
+
+        <div class="container">
+
+            <h1 class="section-title text-center mb-5">
+                Contact <span>Me</span>
+            </h1>
+
+            <div class="row justify-content-center">
+
+                <div class="col-lg-8">
+
+                    <form>
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <input type="text" class="form-control" placeholder="Full Name">
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <input type="email" class="form-control" placeholder="Email Address">
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <input type="text" class="form-control" placeholder="Phone Number">
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <input type="text" class="form-control" placeholder="Subject">
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <textarea rows="7" class="form-control" placeholder="Enter your message"></textarea>
+
+                            </div>
+
+                            <div class="col-12">
+
+                                <button type="submit" class="btn btn-primary px-4">
+
+                                    Send Message
+
+                                </button>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <h3>
+                        Rubel <span>Hosen</span>
+                    </h3>
+
+                    <p>
+                        Junior Laravel Developer
+                    </p>
+
+                </div>
+
+                <div class="col-md-6 text-md-end">
+
+                    <p>
+                        Email: cserubelhosen@gmail.com
+                    </p>
+
+                    <a href="https://github.com/Rubel224603" target="_blank" class="me-3">
+
+                        GitHub
+
+                    </a>
+
+                    <a href="https://www.facebook.com/Rubel224603" target="_blank" class="me-3">
+
+                        Facebook
+
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/r-h-rubel-hossain-a3958216a/" target="_blank">
+
+                        LinkedIn
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <hr>
+
+            <div class="text-center">
+
+                <p class="mb-0">
+                    © 2026 Rubel Hosen. All Rights Reserved.
+                </p>
+
+            </div>
+
+        </div>
+
     </footer>
 
 
-
-
-
-
-
-<!-- font-->
-<script src="assets/font/js/all.js"></script>
-<script src="assets/font/js/fontawesome.js"></script>
-
-
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-
-
-
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
 
 </body>
-</html> 
+
+</html>
